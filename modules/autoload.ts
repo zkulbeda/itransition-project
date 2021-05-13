@@ -15,6 +15,7 @@ function isAcceptableFile(file: string, stat: fs.Stats): boolean {
     && !file.endsWith('.map')
     && !file.endsWith('.test.js')
     && !file.endsWith('.test.ts')
+    && !file.endsWith('.d.ts')
     && stat.isFile()
   );
 }
