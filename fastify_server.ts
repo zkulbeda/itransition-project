@@ -43,7 +43,7 @@ app.register(fastifyAutoRoutes, {
   dir: path.join(__dirname, './fastify'),
 });
 app.register(NextPlugin, {
-  dir: path.join(__dirname, './frontend/main'),
+  dir: path.join(process.cwd(), './frontend/main'),
 });
 
 app.ready(async (err) => {
@@ -51,6 +51,6 @@ app.ready(async (err) => {
     mainLogger.fatal(err.message, err);
     return;
   }
-  await app.listen(+process.env.PORT ?? 3000);
-  console.log('Successful run!', +process.env.PORT ?? 3000, +process.env.PORT, process.env.PORT);
+  await app.listen(+process.env.PORT || 3000);
+  console.log('Successful run!', +process.env.PORT || 3000, +process.env.PORT, process.env.PORT);
 });
