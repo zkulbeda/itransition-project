@@ -1,4 +1,6 @@
 {
+  "files": ["fastify_server.ts"],
+  "include": ["fastify/**/*"],
   "compilerOptions": {
     "lib": [
       "esnext", "dom"

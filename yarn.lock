@@ -1877,10 +1877,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>=10.0.0, @types/node@npm:^15.0.2":
+"@types/node@npm:*, @types/node@npm:>=10.0.0":
   version: 15.0.2
   resolution: "@types/node@npm:15.0.2"
   checksum: ea8dd741bf16ad3318cca505783b7c211a5c8bea49202f99ba88d2ce8a804e994e1fd1b575b994e434e8b8ead810da966d588ea112998f8fe8d95cd74c396f8a
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^15.0.3":
+  version: 15.0.3
+  resolution: "@types/node@npm:15.0.3"
+  checksum: 72bfbac4282443a7b5d5b43c7c39fe855aa1687b5fa5629b735fd2ceacf371b711ccfc956c8af1b1cbd9c74c79be845a801a4c7275048f340aa0df3beec6b10f
   languageName: node
   linkType: hard
 
@@ -1919,6 +1926,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-dom@npm:^17.0.5":
+  version: 17.0.5
+  resolution: "@types/react-dom@npm:17.0.5"
+  dependencies:
+    "@types/react": "*"
+  checksum: b3e23acb7be9405050abb4bcd443d14b16b2f3ded2d1853528199e4307b17b25186f905ddd236c27b6ef0297e6779b7fedd11fd24ee9170771be45a7e8e70f4b
+  languageName: node
+  linkType: hard
+
 "@types/react-transition-group@npm:^4.4.1":
   version: 4.4.1
   resolution: "@types/react-transition-group@npm:4.4.1"
@@ -1928,7 +1944,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:>=16.9.11, @types/react@npm:>=16.9.35":
+"@types/react@npm:*, @types/react@npm:>=16.9.11, @types/react@npm:>=16.9.35, @types/react@npm:^17.0.5":
   version: 17.0.5
   resolution: "@types/react@npm:17.0.5"
   dependencies:
@@ -5623,7 +5639,9 @@ fsevents@~2.3.1:
     "@types/express": ^4.17.11
     "@types/lodash": ^4.14.168
     "@types/luxon": ^1.26.5
-    "@types/node": ^15.0.2
+    "@types/node": ^15.0.3
+    "@types/react": ^17.0.5
+    "@types/react-dom": ^17.0.5
     "@typescript-eslint/eslint-plugin": ^4.23.0
     "@typescript-eslint/parser": ^4.23.0
     axios: ^0.21.1
