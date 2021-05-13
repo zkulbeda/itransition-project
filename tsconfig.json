@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "esnext", "dom"
+    ],
+    "target": "es6",
+    "module": "CommonJS",
+    "outDir": "./build",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "types": ["node"],
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "esModuleInterop": true
+  }
+}
