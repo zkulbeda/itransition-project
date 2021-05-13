@@ -52,5 +52,5 @@ app.ready(async (err) => {
     return;
   }
   await app.listen(+process.env.PORT ?? 3000);
-  console.log('Successful run!');
+  console.log('Successful run!', +process.env.PORT ?? 3000, +process.env.PORT, process.env.PORT);
 });
