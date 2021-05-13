@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "./build.sh",
+    "build": "bash ./build.sh",
     "ts-node-dev": "ts-node-dev fastify_server.ts --ignore-watch .next --rs",
     "start": "ts-node fastify_server.ts --optimize_for_size --max_old_space_size=920 --gc_interval=100"
   },
