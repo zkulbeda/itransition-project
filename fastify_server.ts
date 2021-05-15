@@ -66,8 +66,8 @@ app.register(fastifyGrant({
     response: ['token', 'profile'],
   },
   vk: {
-    key: process.env.VK_CLIENT_ID,
-    secret: process.env.VK_SECRET_KEY,
+    client_id: process.env.VK_CLIENT_ID,
+    client_secret: process.env.VK_SECRET_KEY,
     callback: '/hello',
     scope: [
       'email',
