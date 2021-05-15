@@ -60,6 +60,8 @@ app.register(fastifyGrant({
     callback: '/hello',
     scope: [
       'openid',
+      'https://www.googleapis.com/auth/userinfo.profile',
+      'https://www.googleapis.com/auth/userinfo.email',
     ],
     response: ['token', 'profile'],
   },
