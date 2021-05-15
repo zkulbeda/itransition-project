@@ -2437,7 +2437,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"asn1.js@npm:^5.2.0":
+"asn1.js@npm:^5.2.0, asn1.js@npm:^5.3.0":
   version: 5.4.1
   resolution: "asn1.js@npm:5.4.1"
   dependencies:
@@ -2863,6 +2863,13 @@ __metadata:
   bin:
     browserslist: cli.js
   checksum: ebb0ab279c5e61f882467f7ccd7d22c0edfcc01201eba06e85e835ca4d355e682f9aa3310bfa18c3a23bb244f0b8e498b3113dae3e9b0fa4908c5ffb4a26b3a2
+  languageName: node
+  linkType: hard
+
+"buffer-equal-constant-time@npm:1.0.1":
+  version: 1.0.1
+  resolution: "buffer-equal-constant-time@npm:1.0.1"
+  checksum: a38a6fead170594b97894658d0e62e3686ccaecea480051c0bf69ba29274eca87203452590c3b6a1b589a7da1baef89420da00a8f08c010675c1dbc25f58edf9
   languageName: node
   linkType: hard
 
@@ -3871,6 +3878,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ecdsa-sig-formatter@npm:1.0.11":
+  version: 1.0.11
+  resolution: "ecdsa-sig-formatter@npm:1.0.11"
+  dependencies:
+    safe-buffer: ^5.0.1
+  checksum: 9d07775ee274e0ca3978a562e9eba14ce77ecc804d977d0e94525c2aa4a70d909eda5703810955d22fd06fc6312e6aacf85e233eebdabc7b27a0a38fd62902a4
+  languageName: node
+  linkType: hard
+
 "ee-first@npm:1.1.1":
   version: 1.1.1
   resolution: "ee-first@npm:1.1.1"
@@ -3885,7 +3901,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"elliptic@npm:^6.5.3":
+"elliptic@npm:^6.5.3, elliptic@npm:^6.5.4":
   version: 6.5.4
   resolution: "elliptic@npm:6.5.4"
   dependencies:
@@ -4536,6 +4552,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fastify-grant@npm:^5.4.8":
+  version: 5.4.8
+  resolution: "fastify-grant@npm:5.4.8"
+  dependencies:
+    grant: ^5.4.8
+  peerDependencies:
+    fastify: ">=3.0.0"
+  checksum: 2081db9e7817b1bc8cddce24913275a97417b35e7a2707edd940f8e18c3792521bff5832faf31db5e1a60de39e6cde0f1222204ac259f708f830c56a2ea39d18
+  languageName: node
+  linkType: hard
+
 "fastify-plugin@npm:^3.0.0":
   version: 3.0.0
   resolution: "fastify-plugin@npm:3.0.0"
@@ -5011,6 +5038,30 @@ fsevents@~2.3.1:
   version: 4.2.6
   resolution: "graceful-fs@npm:4.2.6"
   checksum: 84d39c7756892553da990a9db7e45f844b3309b37b5a00174cbb4748476f2250c54f24594d4d252f64f085c65c2fdac7c809419bf6d55f0e6e42eb07ac0f5bf2
+  languageName: node
+  linkType: hard
+
+"grant@npm:^5.4.8":
+  version: 5.4.13
+  resolution: "grant@npm:5.4.13"
+  dependencies:
+    cookie: ^0.4.1
+    cookie-signature: ^1.1.0
+    jwk-to-pem: ^2.0.3
+    jws: ^4.0.0
+    qs: ^6.10.0
+    request-compose: ^2.1.3
+    request-oauth: ^1.0.1
+  dependenciesMeta:
+    cookie:
+      optional: true
+    cookie-signature:
+      optional: true
+    jwk-to-pem:
+      optional: true
+    jws:
+      optional: true
+  checksum: 35d0395256adf12ea263621a962d445b3e55545414973974aaf391326551b4a793851282b6ac61efbbfbeafbb192564b97f989b57b717c9c27e7b52f05b2408e
   languageName: node
   linkType: hard
 
@@ -5667,6 +5718,7 @@ fsevents@~2.3.1:
     fastify-autoroutes: ^1.4.0
     fastify-cookie: ^5.3.0
     fastify-error: ^0.3.1
+    fastify-grant: ^5.4.8
     fastify-plugin: ^3.0.0
     fastify-request-context: ^2.1.3
     fastify-session: ^5.2.1
@@ -5818,6 +5870,38 @@ fsevents@~2.3.1:
     array-includes: ^3.1.2
     object.assign: ^4.1.2
   checksum: 2a8033e63234d04e6ed77ac91222e2dff527f64cf70c10d2f26fda6f35dc9b78d5e3a43fc3d28df7fe0dab45294b94c9c90e58ab242ecf14e58cd39691ee0ed4
+  languageName: node
+  linkType: hard
+
+"jwa@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "jwa@npm:2.0.0"
+  dependencies:
+    buffer-equal-constant-time: 1.0.1
+    ecdsa-sig-formatter: 1.0.11
+    safe-buffer: ^5.0.1
+  checksum: 03f8af36a3adf27b55ef98ef09be5b4a02b4533e33c91225a38addea1b164e28349cdf78b0e54cce088c472e203e8910bb37e989663c577454d371c7eef1b870
+  languageName: node
+  linkType: hard
+
+"jwk-to-pem@npm:^2.0.3":
+  version: 2.0.5
+  resolution: "jwk-to-pem@npm:2.0.5"
+  dependencies:
+    asn1.js: ^5.3.0
+    elliptic: ^6.5.4
+    safe-buffer: ^5.0.1
+  checksum: d1a1601e48cd3b4821e554341953a8b1db72fe596095b568ac97b8797f84ce6907e8f7e7d94eaf33a9bbdcfbcd344a0878ab798d40a24b0eca26bd47d70d3d50
+  languageName: node
+  linkType: hard
+
+"jws@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "jws@npm:4.0.0"
+  dependencies:
+    jwa: ^2.0.0
+    safe-buffer: ^5.0.1
+  checksum: fb7d2725da5f4a9669024e3e743a3c4bfc193265614e03d52ea24a5251717107491004892d3524fdee525341d91212928bc19b8253f42f0df3dc35bf478dc92e
   languageName: node
   linkType: hard
 
@@ -6755,6 +6839,13 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"oauth-sign@npm:^0.9.0":
+  version: 0.9.0
+  resolution: "oauth-sign@npm:0.9.0"
+  checksum: af1ab60297c3a687d1d2de5c43c6453c4df6939de3e6114ada4a486ac51fa7ab1769f33000b94c0e8ffced5ae4c57c4f5d36b517792d83e9e9742578a728682e
+  languageName: node
+  linkType: hard
+
 "object-assign@npm:^4, object-assign@npm:^4.0.1, object-assign@npm:^4.1.0, object-assign@npm:^4.1.1":
   version: 4.1.1
   resolution: "object-assign@npm:4.1.1"
@@ -7411,6 +7502,15 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"qs@npm:^6.10.0, qs@npm:^6.9.6":
+  version: 6.10.1
+  resolution: "qs@npm:6.10.1"
+  dependencies:
+    side-channel: ^1.0.4
+  checksum: 25e50a9107322027a998ba4eacec3df4b575c4f0a02cf0602002242d09ac997ab783384b6e90d6264a4d8387de3d17fb177d9c304a0dd9ec706a3087a069b204
+  languageName: node
+  linkType: hard
+
 "query-string@npm:^7.0.0":
   version: 7.0.0
   resolution: "query-string@npm:7.0.0"
@@ -7833,6 +7933,24 @@ fsevents@~2.3.1:
   dependencies:
     is-finite: ^1.0.0
   checksum: a788561778bfcbe4fc6fd15cb912ed53665933514524e4b5a998934ef20793c0afd21229f411d15bc5b7ab171eca7ac531655070f1dfc427f723bae57b61d55a
+  languageName: node
+  linkType: hard
+
+"request-compose@npm:^2.1.3":
+  version: 2.1.4
+  resolution: "request-compose@npm:2.1.4"
+  checksum: 63611707d0fa91878a8699bbdbae87cca759b81a9fcddb634c2af7ac922a621eb8dec15969dfebb62ce79f42aa4f279289e73fab14c43957090c7c515417690e
+  languageName: node
+  linkType: hard
+
+"request-oauth@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "request-oauth@npm:1.0.1"
+  dependencies:
+    oauth-sign: ^0.9.0
+    qs: ^6.9.6
+    uuid: ^8.3.2
+  checksum: 4b70356a8dba097260ac54be6da048353282a013a55e71132cd87b4824c173a45074c2be5b7b13203a5f10bf68193aebf1479e8ba93686f5f512ba8ddea2f044
   languageName: node
   linkType: hard
 
@@ -9389,7 +9507,7 @@ typescript@^4.2.4:
   languageName: node
   linkType: hard
 
-"uuid@npm:^8.1.0":
+"uuid@npm:^8.1.0, uuid@npm:^8.3.2":
   version: 8.3.2
   resolution: "uuid@npm:8.3.2"
   bin:

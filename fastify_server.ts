@@ -1,15 +1,20 @@
-import fastify from 'fastify';
-import * as queryString from 'query-string';
-import fastifyCookie from 'fastify-cookie';
 import fastifySession from '@mgcrea/fastify-session';
-import dotenv from 'dotenv';
 import { SODIUM_SECRETBOX } from '@mgcrea/fastify-session-sodium-crypto';
+import dotenv from 'dotenv';
+import fastify from 'fastify';
+import fastifyCookie from 'fastify-cookie';
+import fastifyGrant from 'fastify-grant';
 import path from 'path';
-import { fastifyPinoFallback, loggerPlugin, mainLogger } from './modules/logger';
-import TypeORMPlugin from './modules/typeorm';
+import * as queryString from 'query-string';
 import fastifyAutoRoutes from './modules/autoload';
-import NextPlugin from './modules/next';
 import errorHandler from './modules/error-handler';
+import {
+  fastifyPinoFallback,
+  loggerPlugin,
+  mainLogger,
+} from './modules/logger';
+import NextPlugin from './modules/next';
+import TypeORMPlugin from './modules/typeorm';
 import validationCompiler from './modules/validation-compiler';
 
 dotenv.config();
@@ -39,6 +44,17 @@ app.setErrorHandler(errorHandler);
 app.setValidatorCompiler(validationCompiler);
 
 app.register(loggerPlugin);
+app.register(fastifyGrant({
+  defaults: {
+    origin: process.env.API_URL,
+    transport: 'session',
+  },
+  google: {
+    key: process.env.GOOGLE_CLIENT_ID,
+    secret: process.env.GOOGLE_SECRET_KEY,
+    callback: '/hello',
+  },
+}));
 app.register(fastifyAutoRoutes, {
   dir: path.join(__dirname, './fastify'),
 });
