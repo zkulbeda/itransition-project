@@ -37,7 +37,7 @@ const redisClient = new Redis({
   host: process.env.REDIS_HOST,
   port: +process.env.REDIS_PORT,
   password: process.env.REDIS_PASSWORD,
-  db: 'itransition',
+  db: 0,
 });
 
 app.register(fastifySession, {
@@ -61,8 +61,8 @@ app.register(fastifyGrant({
     callback: '/hello',
     scope: [
       'openid',
-      'profile',
     ],
+    response: ['token', 'profile'],
   },
 }), {
   prefix: '/api',
