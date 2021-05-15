@@ -61,6 +61,7 @@ app.register(fastifyGrant({
     callback: '/hello',
     scope: [
       'openid',
+      'profile',
     ],
   },
 }), {
