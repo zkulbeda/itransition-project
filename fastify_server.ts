@@ -37,7 +37,6 @@ const redisClient = new Redis({
   host: process.env.REDIS_HOST,
   port: +process.env.REDIS_PORT,
   password: process.env.REDIS_PASSWORD,
-  db: 'db0',
 });
 
 app.register(fastifySession, {
@@ -65,6 +64,14 @@ app.register(fastifyGrant({
       'https://www.googleapis.com/auth/userinfo.email',
     ],
     response: ['token', 'profile'],
+  },
+  vk: {
+    key: process.env.VK_CLIENT_ID,
+    secret: process.env.VK_SECRET_KEY,
+    callback: '/hello',
+    scope: [
+      'email',
+    ],
   },
 }), {
   prefix: '/api',
