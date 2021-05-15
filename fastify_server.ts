@@ -1,9 +1,9 @@
-import fastifySession from '@mgcrea/fastify-session';
-import { SODIUM_SECRETBOX } from '@mgcrea/fastify-session-sodium-crypto';
 import dotenv from 'dotenv';
 import fastify from 'fastify';
 import fastifyCookie from 'fastify-cookie';
 import fastifyGrant from 'fastify-grant';
+import fastifySession from 'fastify-session';
+import Redis from 'ioredis';
 import path from 'path';
 import * as queryString from 'query-string';
 import fastifyAutoRoutes from './modules/autoload';
@@ -14,6 +14,7 @@ import {
   mainLogger,
 } from './modules/logger';
 import NextPlugin from './modules/next';
+import RedisSessionStore from './modules/redis-store';
 import TypeORMPlugin from './modules/typeorm';
 import validationCompiler from './modules/validation-compiler';
 
@@ -28,15 +29,20 @@ const app = fastify({
   pluginTimeout: 20000,
   logger: fastifyPinoFallback,
 });
+
 app.register(TypeORMPlugin);
 app.register(fastifyCookie);
+
+const redisClient = new Redis({
+  host: process.env.REDIS_HOST,
+  port: +process.env.REDIS_PORT,
+  password: process.env.REDIS_PASSWORD,
+  db: 'itransition',
+});
+
 app.register(fastifySession, {
   secret: process.env.SECRET_COOKIE_PASSWORD,
-  crypto: SODIUM_SECRETBOX,
-  cookie: {
-    maxAge: 864e3, // 1 day in sec
-    secure: process.env.NODE_ENV === 'production',
-  },
+  store: new RedisSessionStore(redisClient),
 });
 
 app.setErrorHandler(errorHandler);

@@ -38,6 +38,7 @@
     "fastify-static": "^4.0.1",
     "formik": "^2.2.6",
     "immutable": "^4.0.0-rc.12",
+    "ioredis": "^4.27.2",
     "lodash": "^4.17.21",
     "luxon": "^1.26.0",
     "morgan": "~1.9.1",
