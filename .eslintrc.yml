@@ -20,7 +20,9 @@ settings:
       extensions: [ '.js', '.jsx', '.ts', '.tsx', '.json' ]
 rules:
   no-unused-vars: 0
+  no-shadow: 0
   '@typescript-eslint/no-unused-vars': [ "error" ]
+  '@typescript-eslint/no-shadow': [ "error" ]
   import/extensions:
     - error
     - ignorePackages
