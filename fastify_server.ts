@@ -53,6 +53,9 @@ app.register(fastifyGrant({
     key: process.env.GOOGLE_CLIENT_ID,
     secret: process.env.GOOGLE_SECRET_KEY,
     callback: '/hello',
+    scope: [
+      'userinfo.profile',
+    ],
   },
 }));
 app.register(fastifyAutoRoutes, {
