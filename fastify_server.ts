@@ -57,7 +57,9 @@ app.register(fastifyGrant({
       'userinfo.profile',
     ],
   },
-}));
+}), {
+  prefix: '/api',
+});
 app.register(fastifyAutoRoutes, {
   dir: path.join(__dirname, './fastify'),
 });
