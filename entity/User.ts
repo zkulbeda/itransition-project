@@ -1,37 +1,55 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn,
+} from 'typeorm';
 import { DateTime } from 'luxon';
 import { UserRole } from '../modules/abilities';
 import { SqlDateTransformer } from '../modules/helpers';
+import CampaignBonus from './CampaignBonus';
+import Campaign from './Campaign';
+import Picture from './Picture';
+import Comment from './Comment';
 
 @Entity()
 export default class User {
-    @PrimaryGeneratedColumn()
-    Id: number
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    Name: string
+  @Column()
+  name: string;
 
-    @Column()
-    Email: string
+  @Column()
+  email: string;
 
-    @Column({
-      type: 'datetime',
-      transformer: SqlDateTransformer,
-    })
-    RegDate: DateTime
+  @Column({
+    type: 'datetime',
+    transformer: SqlDateTransformer,
+  })
+  regDate: DateTime;
 
-    @Column({
-      type: 'datetime',
-      transformer: SqlDateTransformer,
-    })
-    LastLogIn: DateTime
+  @Column({
+    type: 'datetime',
+    transformer: SqlDateTransformer,
+  })
+  lastLogIn: DateTime;
 
-    @Column({
-      type: 'enum',
-      enum: UserRole,
-    })
-    UserRole: UserRole
+  @Column({
+    type: 'enum',
+    enum: UserRole,
+  })
+  userRole: UserRole;
 
-    @Column()
-    PasswordHash: string
+  @Column()
+  passwordHash: string;
+
+  @ManyToMany(() => CampaignBonus)
+  achievedBonuses: CampaignBonus[];
+
+  @OneToMany(() => Campaign, (campaign) => campaign.user)
+  campaigns: Campaign[];
+
+  @OneToMany(() => Picture, (picture) => picture.user)
+  pictures: Picture[];
+
+  @OneToMany(() => Comment, (comment) => comment.user)
+  comments: Comment[];
 }
