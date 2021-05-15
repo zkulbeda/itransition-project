@@ -54,7 +54,7 @@ app.register(fastifyGrant({
     secret: process.env.GOOGLE_SECRET_KEY,
     callback: '/hello',
     scope: [
-      'userinfo.profile',
+      'openid',
     ],
   },
 }), {
