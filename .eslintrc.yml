@@ -21,6 +21,7 @@ settings:
 rules:
   no-unused-vars: 0
   no-shadow: 0
+  no-console: 0
   '@typescript-eslint/no-unused-vars': [ "error" ]
   '@typescript-eslint/no-shadow': [ "error" ]
   import/extensions:
