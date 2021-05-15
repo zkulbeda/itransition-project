@@ -1,5 +1,5 @@
-import isObject from 'lodash/isObject';
 import isArray from 'lodash/isArray';
+import isObject from 'lodash/isObject';
 import { DateTime } from 'luxon';
 
 export function convertNumbersFromObject(obj: object) {

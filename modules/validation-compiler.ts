@@ -1,5 +1,5 @@
-import { ZodTypeAny } from 'zod';
 import { FastifySchemaCompiler } from 'fastify';
+import { ZodTypeAny } from 'zod';
 import { convertNumbersFromObject } from './helpers';
 import { mainLogger } from './logger';
 
@@ -11,7 +11,7 @@ interface ZodRequestSchema {
   response?: ZodTypeAny;
 }
 
-const compiler:FastifySchemaCompiler<ZodRequestSchema> = ({
+const compiler: FastifySchemaCompiler<ZodRequestSchema> = ({
   schema,
   httpPart,
 }) => {

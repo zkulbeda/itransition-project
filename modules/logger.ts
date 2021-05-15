@@ -1,12 +1,20 @@
 import {
-  createLogger, format, LeveledLogMethod, Logger, transports,
+  FastifyPluginAsync,
+  FastifyReply,
+  FastifyRequest,
+} from 'fastify';
+import fp from 'fastify-plugin';
+import { DateTime } from 'luxon';
+import { nanoid } from 'nanoid';
+import {
+  createLogger,
+  format,
+  LeveledLogMethod,
+  Logger,
+  transports,
 } from 'winston';
 import { consoleFormat } from 'winston-console-format';
-import { DateTime } from 'luxon';
 import { AbstractConfigSetLevels } from 'winston/lib/winston/config';
-import { FastifyPluginAsync, FastifyReply, FastifyRequest } from 'fastify';
-import fp from 'fastify-plugin';
-import { nanoid } from 'nanoid';
 
 const pinoLevels = {
   levels: {
@@ -61,19 +69,19 @@ mainLogger.add(new transports.Console({
 }));
 
 declare module 'fastify' {
-    // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars
   interface FastifyInstance {
     logger: typeof mainLogger
   }
 
-    // eslint-disable-next-line no-unused-vars,no-shadow
+  // eslint-disable-next-line no-unused-vars,no-shadow
   interface FastifyRequest {
     logger: typeof mainLogger
     reqId: string,
     execTime: DateTime
   }
 
-    // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars
   interface FastifyError {
     validationContext?: string
   }

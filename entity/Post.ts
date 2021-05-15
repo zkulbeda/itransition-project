@@ -1,5 +1,8 @@
 import {
-  Column, Entity, ManyToOne, PrimaryGeneratedColumn,
+  Column,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
 import Campaign from './Campaign';
 import Picture from './Picture';

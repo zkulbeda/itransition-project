@@ -1,3 +1,4 @@
+import { DateTime } from 'luxon';
 import {
   Column,
   Entity,
@@ -7,14 +8,13 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { DateTime } from 'luxon';
 import { SqlDateTransformer } from '../modules/helpers';
-import User from './User';
+import CampaignBonus from './CampaignBonus';
 import CampaignMatter from './CampaignMatter';
 import Picture from './Picture';
-import Tag from './Tag';
-import CampaignBonus from './CampaignBonus';
 import Rating from './Rating';
+import Tag from './Tag';
+import User from './User';
 
 @Entity()
 export default class Campaign {

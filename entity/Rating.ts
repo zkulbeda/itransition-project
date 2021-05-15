@@ -1,16 +1,20 @@
 import {
-  Column, Entity, ManyToOne, PrimaryColumn,
+  Column,
+  Entity,
+  ManyToOne,
+  PrimaryColumn,
 } from 'typeorm';
-import User from './User';
 import Campaign from './Campaign';
+import User from './User';
 
 @Entity()
 export default class Rating {
   @PrimaryColumn()
+  id: number;
+
   @ManyToOne(() => User)
   user: User;
 
-  @PrimaryColumn()
   @ManyToOne(() => Campaign, (campaign) => campaign.ratings)
   campaign: Campaign;
 

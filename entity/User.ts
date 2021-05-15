@@ -1,13 +1,17 @@
-import {
-  Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn,
-} from 'typeorm';
 import { DateTime } from 'luxon';
+import {
+  Column,
+  Entity,
+  ManyToMany,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { UserRole } from '../modules/abilities';
 import { SqlDateTransformer } from '../modules/helpers';
-import CampaignBonus from './CampaignBonus';
 import Campaign from './Campaign';
-import Picture from './Picture';
+import CampaignBonus from './CampaignBonus';
 import Comment from './Comment';
+import Picture from './Picture';
 
 @Entity()
 export default class User {

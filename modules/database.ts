@@ -1,15 +1,15 @@
 import { createConnection } from 'typeorm';
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
-import User from '../entity/User';
 import Campaign from '../entity/Campaign';
 import CampaignBonus from '../entity/CampaignBonus';
 import CampaignMatter from '../entity/CampaignMatter';
+import Comment from '../entity/Comment';
 import CommentVote from '../entity/CommentVote';
 import Picture from '../entity/Picture';
 import Post from '../entity/Post';
 import Rating from '../entity/Rating';
 import Tag from '../entity/Tag';
-import Comment from '../entity/Comment';
+import User from '../entity/User';
 
 export default function getBDInstance(synchronize: boolean = false, logging: boolean = false) {
   return createConnection({

@@ -3,10 +3,10 @@
  *
  * https://github.com/GiovanniCardamone/fastify-autoroutes
  */
-import fastifyPlugin from 'fastify-plugin';
 import { FastifyInstance } from 'fastify';
-import path from 'path';
+import fastifyPlugin from 'fastify-plugin';
 import fs from 'fs';
+import path from 'path';
 
 function isAcceptableFile(file: string, stat: fs.Stats): boolean {
   return (

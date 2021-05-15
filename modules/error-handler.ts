@@ -1,13 +1,16 @@
-import { ZodError } from 'zod';
+import {
+  FastifyReply,
+  FastifyRequest,
+} from 'fastify';
 import { FastifyError } from 'fastify-error';
-import { FastifyReply, FastifyRequest } from 'fastify';
+import { ZodError } from 'zod';
 import BasicError, { IBasicErrorConstructor } from '../errors/BasicError';
-import { mainLogger } from './logger';
 import BodyValidationError from '../errors/Validation/BodyValidationError';
-import QueryStringValidationError from '../errors/Validation/QueryStringValidationError';
-import ParamsValidationError from '../errors/Validation/ParamsValidationError';
 import HeadersValidationError from '../errors/Validation/HeadersValidationError';
+import ParamsValidationError from '../errors/Validation/ParamsValidationError';
+import QueryStringValidationError from '../errors/Validation/QueryStringValidationError';
 import ValidationError from '../errors/Validation/ValidationError';
+import { mainLogger } from './logger';
 
 type ZodErrorWithContext = ZodError & { validationContext: string }
 type SomeError = Error | BasicError | ZodErrorWithContext | FastifyError

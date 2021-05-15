@@ -1,9 +1,13 @@
 import {
-  Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn,
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
-import User from './User';
-import Post from './Post';
 import CommentVote from './CommentVote';
+import Post from './Post';
+import User from './User';
 
 @Entity()
 export default class Comment {

@@ -1,11 +1,19 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  Index,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import User from './User';
 
 @Entity()
 export default class CampaignMatter {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: User;
 
+  @Index({
+    unique: true,
+  })
   @Column({
     type: 'varchar',
     length: 50,

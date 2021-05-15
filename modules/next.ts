@@ -1,11 +1,12 @@
-import Next from 'next';
-import fp from 'fastify-plugin';
 import { FastifyPluginAsync } from 'fastify';
+import fp from 'fastify-plugin';
+import Next from 'next';
 import path from 'path';
 
-interface NextPluginOptions{
-    dir: string
+interface NextPluginOptions {
+  dir: string
 }
+
 const NextMiddleware: FastifyPluginAsync = async (fastify, options: NextPluginOptions) => {
   const config = await import(path.join(options.dir, 'next.config.js'));
   const next = Next({

@@ -1,8 +1,11 @@
 import {
-  Column, Entity, ManyToOne, PrimaryGeneratedColumn,
+  Column,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
-import User from './User';
 import Comment from './Comment';
+import User from './User';
 
 export enum CommentVoteType {
   UP = 'up',
