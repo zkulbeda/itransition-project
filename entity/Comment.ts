@@ -11,6 +11,8 @@ import User from './User';
 
 @Entity()
 export default class Comment {
+  static readonly modelName = 'Comment'
+
   @PrimaryGeneratedColumn()
   id: number;
 

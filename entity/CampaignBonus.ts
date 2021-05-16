@@ -8,6 +8,8 @@ import Campaign from './Campaign';
 
 @Entity()
 export default class CampaignBonus {
+  static readonly modelName = 'CampaignBonus'
+
   @PrimaryGeneratedColumn()
   id: string;
 

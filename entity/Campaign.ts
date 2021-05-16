@@ -18,6 +18,8 @@ import User from './User';
 
 @Entity()
 export default class Campaign {
+  static readonly modelName = 'Campaign'
+
   @PrimaryGeneratedColumn()
   id: number;
 

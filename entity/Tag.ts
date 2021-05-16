@@ -7,6 +7,8 @@ import {
 
 @Entity()
 export default class Tag {
+  static readonly modelName = 'Tag'
+
   @PrimaryGeneratedColumn()
   id: number;
 

@@ -15,6 +15,8 @@ import Picture from './Picture';
 
 @Entity()
 export default class User {
+  static readonly modelName = 'User'
+
   @PrimaryGeneratedColumn()
   id: number;
 

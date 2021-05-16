@@ -14,6 +14,8 @@ export enum CommentVoteType {
 
 @Entity()
 export default class CommentVote {
+  static readonly modelName = 'CommentVote'
+
   @PrimaryGeneratedColumn()
   id: number;
 

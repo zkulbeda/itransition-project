@@ -9,6 +9,8 @@ import User from './User';
 
 @Entity()
 export default class Rating {
+  static readonly modelName = 'Rating'
+
   @PrimaryColumn()
   id: number;
 

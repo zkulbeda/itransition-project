@@ -8,6 +8,8 @@ import User from './User';
 
 @Entity()
 export default class CampaignMatter {
+  static readonly modelName = 'CampaignMatter'
+
   @PrimaryGeneratedColumn()
   id: User;
 

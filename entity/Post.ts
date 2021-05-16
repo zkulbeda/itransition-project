@@ -9,6 +9,8 @@ import Picture from './Picture';
 
 @Entity()
 export default class Post {
+  static readonly modelName = 'Post'
+
   @PrimaryGeneratedColumn()
   id: string;
 
