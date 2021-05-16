@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import fastify from 'fastify';
 import fastifyCookie from 'fastify-cookie';
+import fastifyCors from 'fastify-cors';
 import fastifyGrant from 'fastify-grant';
 import fastifySession from 'fastify-session';
 import Redis from 'ioredis';
@@ -31,6 +32,13 @@ const app = fastify({
 });
 
 app.register(TypeORMPlugin);
+
+if (process.env.NODE_ENV === 'development') {
+  app.register(fastifyCors, {
+    origin: true,
+  });
+}
+
 app.register(fastifyCookie);
 
 const redisClient = new Redis({
@@ -79,15 +87,22 @@ app.register(fastifyGrant({
 app.register(fastifyAutoRoutes, {
   dir: path.join(__dirname, './fastify'),
 });
-app.register(NextPlugin, {
-  dir: path.join(process.cwd(), './frontend/main'),
-});
+
+if (process.env.NODE_ENV !== 'development') {
+  app.register(NextPlugin, {
+    dir: path.join(process.cwd(), './frontend/main'),
+  });
+}
 
 app.ready(async (err) => {
   if (err) {
     mainLogger.fatal(err.message, err);
     return;
   }
-  await app.listen(+process.env.PORT || 3000, '0.0.0.0');
-  console.log('Successful run!', +process.env.PORT || 3000, +process.env.PORT, process.env.PORT);
+  await app.listen(+process.env.PORT || 3000, process.env.NODE_ENV === 'development' ? undefined : '0.0.0.0');
+  console.log('Successful run!', +process.env.PORT || 3000);
+});
+
+process.on('uncaughtException', (error) => {
+  console.error(error);
 });
