@@ -14,7 +14,7 @@ declare module 'fastify' {
     user?: User | null
   }
 }
-export function AuthRequired(request: FastifyRequest) {
+export async function AuthRequired(request: FastifyRequest) {
   if (!request.user) {
     throw new NoAuthorizationError();
   }
