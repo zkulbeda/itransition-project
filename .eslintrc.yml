@@ -3,8 +3,8 @@ env:
   es2021: true
   node: true
 extends:
-  - 'plugin:react/recommended'
   - airbnb
+  - airbnb/hooks
 parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaFeatures:
@@ -19,11 +19,15 @@ settings:
     node:
       extensions: [ '.js', '.jsx', '.ts', '.tsx', '.json' ]
 rules:
+  "no-use-before-define": "off"
+  "no-param-reassign": ["error", { "props": false }]
+  react/prop-types: 0
   no-unused-vars: 0
   no-shadow: 0
   no-console: 0
   '@typescript-eslint/no-unused-vars': [ "error" ]
   '@typescript-eslint/no-shadow': [ "error" ]
+  react/jsx-props-no-spreading: 0
   import/extensions:
     - error
     - ignorePackages

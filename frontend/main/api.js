@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
-console.log(process.env.API_URL);
+console.log(process.env.NEXT_PUBLIC_API_URL);
 export default axios.create({
-    // baseURL: process.env.API_URL,
-    withCredentials: true
+  baseURL: process.env.API_URL,
+  withCredentials: true,
 });
