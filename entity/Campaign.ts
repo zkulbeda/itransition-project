@@ -18,7 +18,7 @@ import User from './User';
 
 @Entity()
 export default class Campaign {
-  static readonly modelName = 'Campaign'
+  static readonly modelName = 'Campaign';
 
   @PrimaryGeneratedColumn()
   id: number;
@@ -85,4 +85,26 @@ export default class Campaign {
 
   @ManyToOne(() => Rating, (rating) => rating.campaign)
   ratings: Rating[];
+
+  // async toPublicObject(this: Campaign, permissions: UserPermissionsObject) {
+  //   let obj: ICampaign = {
+  //     id: this.id,
+  //     userId: this.userId,
+  //     name: this.name,
+  //     description: this.description,
+  //     requiredMoney: this.requiredMoney,
+  //     youtube: this.youtube,
+  //     endDate: this.endDate.toISO(),
+  //     rating: (await getRepository(Rating)
+  //       .createQueryBuilder('rating')
+  //       .select('AVG(rating.rating)', 'avg')
+  //       .where('rating.campaignId != :id', { id: this.id })
+  //       .getRawOne())?.avg,
+  //     matter: (await this.matter).toPublicObject(),
+  //     tags: ITag[],
+  //     bonuses?: ICampaignBonus[],
+  //     pictures?: IPicture[],
+  //     user?: IUser,
+  //   }
+  // }
 }
