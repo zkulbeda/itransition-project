@@ -33,18 +33,21 @@ export default class User {
   @Column({
     type: 'datetime',
     transformer: SqlDateTransformer,
+    default: () => 'now()',
   })
   regDate: DateTime;
 
   @Column({
     type: 'datetime',
     transformer: SqlDateTransformer,
+    default: () => 'now()',
   })
   lastLogIn: DateTime;
 
   @Column({
     type: 'enum',
     enum: UserRole,
+    default: UserRole.User,
   })
   userRole: UserRole;
 
@@ -65,4 +68,14 @@ export default class User {
 
   @OneToMany(() => Comment, (comment) => comment.user)
   comments: Comment[];
+
+  async setPassword(this: User, password: string): Promise<void> {
+    this.passwordHash = await bcrypt.hash(password, 8);
+  }
+
+  async comparePassword(this: User, password: string):Promise<boolean> {
+    if (!this.passwordHash) return false;
+
+    return bcrypt.compare(password, this.passwordHash);
+  }
 }
