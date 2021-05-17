@@ -28,6 +28,11 @@ export default class Post {
   @ManyToOne(() => Picture)
   picture: Picture;
 
+  @Column({
+    nullable: false,
+  })
+  campaignId: number;
+
   @ManyToOne(() => Campaign)
   campaign: Campaign;
 }
