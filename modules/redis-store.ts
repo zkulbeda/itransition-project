@@ -1,6 +1,6 @@
 import { Redis } from 'ioredis';
 
-class RedisSessionStore {
+export default class RedisSessionStore {
   private redis: Redis
 
   private readonly keyPrefix: string
@@ -22,20 +22,21 @@ class RedisSessionStore {
   }
 
   get(sessionId: string, callback: (err?: Error, session?: any) => void): void {
+    console.log(`get ${sessionId}`);
     this.redis
       .get(this.getKey(sessionId))
       .then((value) => {
+        console.log(value);
         callback(undefined, JSON.parse(value ?? '{}'));
       })
       .catch((error) => callback(error, null));
   }
 
   set(sessionId: string, session: any, callback: (err?: Error) => void): void {
+    console.log(sessionId, session);
     this.redis
       .set(this.getKey(sessionId), JSON.stringify(session))
       .then(() => callback())
       .catch((err) => callback(err));
   }
 }
-
-export default RedisSessionStore;
