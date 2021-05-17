@@ -37,16 +37,16 @@ export default (error: SomeError, request: FastifyRequest, reply: FastifyReply) 
         resultError = new ValidationError('Undefined error', resultError.errors);
     }
   }
-  if (error instanceof BasicError) {
-    return reply.code((error.constructor as IBasicErrorConstructor).httpStatus)
+  if (resultError instanceof BasicError) {
+    return reply.code((resultError.constructor as IBasicErrorConstructor).httpStatus)
       .send({
-        error: error.toObject(),
+        error: resultError.toObject(),
         success: false,
       });
   }
-  request.logger.warn(error);
+  request.logger.warn(resultError);
   if (process.env.NODE_ENV === 'development') {
-    reply.send(error);
+    reply.send(resultError);
   }
   return reply
     .code(500)
