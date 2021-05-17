@@ -22,7 +22,7 @@ export function AuthRequired(request: FastifyRequest) {
 
 const AuthMiddleware: FastifyPluginAsync = async (app: FastifyInstance) => {
   app.decorateRequest('user', null);
-  app.addHook('onRequest', async (request) => {
+  app.addHook('preHandler', async (request) => {
     if (!request.session.user_id) return;
     const user = await request.orm.getRepository(User).findOne(request.session.user_id);
     request.user = user ?? null;

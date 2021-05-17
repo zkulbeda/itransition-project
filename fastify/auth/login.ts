@@ -21,7 +21,6 @@ export default (app: FastifyInstance, url: string) => {
     },
   }, async (request) => {
     const userRepo = request.orm.getRepository(User);
-    console.log(request.body);
     const user = await userRepo.findOne({ email: request.body.email });
 
     if (!user) {
@@ -30,7 +29,7 @@ export default (app: FastifyInstance, url: string) => {
     if (!(await user.comparePassword(request.body.password))) {
       throw new PasswordLogInError('Password don\'t match');
     }
-    if (permissions.user({ user }).userPermissions.can('login', 'User')) {
+    if (!permissions.user({ user }).userPermissions.can('login', 'User')) {
       throw new EmailLogInError('You have been blocked');
     }
 

@@ -50,6 +50,10 @@ const redisClient = new Redis({
 app.register(fastifySession, {
   secret: process.env.SECRET_COOKIE_PASSWORD,
   store: new RedisSessionStore(redisClient),
+  cookie: {
+    path: '/',
+    secure: process.env.NODE_ENV !== 'development',
+  },
 });
 
 app.setErrorHandler(errorHandler);

@@ -12,10 +12,10 @@ export default (app: FastifyInstance, url: string) => {
   });
   type bodyType = z.infer<typeof bodySchema>
 
-  app.get<{ Body: bodyType }>(url, async (request) => {
+  app.post<{ Body: bodyType }>(url, async (request) => {
     const userRepo = request.orm.getRepository(User);
     const { body } = request;
-    const hasSameEmail = userRepo.findOne({
+    const hasSameEmail = await userRepo.findOne({
       select: ['email'],
       where: { email: body.email },
     });
