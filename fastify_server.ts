@@ -7,6 +7,7 @@ import fastifySession from 'fastify-session';
 import Redis from 'ioredis';
 import path from 'path';
 import * as queryString from 'query-string';
+import AuthMiddleware from './modules/auth';
 import fastifyAutoRoutes from './modules/autoload';
 import errorHandler from './modules/error-handler';
 import {
@@ -88,6 +89,7 @@ app.register(fastifyGrant({
 }), {
   prefix: '/api',
 });
+app.register(AuthMiddleware);
 app.register(fastifyAutoRoutes, {
   dir: path.join(__dirname, './fastify'),
 });
