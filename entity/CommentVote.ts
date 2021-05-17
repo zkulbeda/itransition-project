@@ -4,13 +4,9 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { CommentVoteType } from '../schema/ICommentVote';
 import Comment from './Comment';
 import User from './User';
-
-export enum CommentVoteType {
-  UP = 'up',
-  DOWN = 'down'
-}
 
 @Entity()
 export default class CommentVote {
