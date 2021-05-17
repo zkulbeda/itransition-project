@@ -20,6 +20,11 @@ export default class Post {
   @Column()
   content: string;
 
+  @Column({
+    nullable: true,
+  })
+  pictureId: number;
+
   @ManyToOne(() => Picture)
   picture: Picture;
 

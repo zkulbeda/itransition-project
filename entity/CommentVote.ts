@@ -19,8 +19,18 @@ export default class CommentVote {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column({
+    nullable: true,
+  })
+  userId: number;
+
   @ManyToOne(() => User, (user) => user.comments)
   user: User;
+
+  @Column({
+    nullable: false,
+  })
+  commentId: number;
 
   @ManyToOne(() => Comment, (comment) => comment.votes)
   comment: Comment;

@@ -13,9 +13,12 @@ export default class CampaignBonus {
   @PrimaryGeneratedColumn()
   id: string;
 
-  @ManyToOne(() => Campaign, {
-    nullable: false,
-  })
+  // @Column({
+  //   nullable: false,
+  // })
+  campaignID: number;
+
+  @ManyToOne(() => Campaign, (c) => c.bonuses, {})
   campaign: Campaign;
 
   @Column({

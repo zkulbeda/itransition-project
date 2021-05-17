@@ -1,4 +1,5 @@
 import {
+  Column,
   Entity,
   ManyToOne,
   PrimaryGeneratedColumn,
@@ -11,6 +12,11 @@ export default class Picture {
 
   @PrimaryGeneratedColumn('uuid')
   id: string;
+
+  @Column({
+    nullable: true,
+  })
+  userId: number;
 
   @ManyToOne(() => User, (user) => user.pictures)
   user: User;

@@ -19,8 +19,18 @@ export default class Comment {
   @Column()
   content: string;
 
+  // @Column({
+  //   nullable: true,
+  // })
+  userId: number
+
   @ManyToOne(() => User)
   user: User;
+
+  @Column({
+    nullable: false,
+  })
+  postId: number
 
   @ManyToOne(() => Post)
   post: Post;

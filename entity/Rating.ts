@@ -14,8 +14,18 @@ export default class Rating {
   @PrimaryColumn()
   id: number;
 
+  // @Column({
+  //   nullable: true,
+  // })
+  userId: number;
+
   @ManyToOne(() => User)
   user: User;
+
+  @Column({
+    nullable: false,
+  })
+  campaignId: number;
 
   @ManyToOne(() => Campaign, (campaign) => campaign.ratings)
   campaign: Campaign;

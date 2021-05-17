@@ -50,6 +50,11 @@ export default class Campaign {
   })
   endDate: DateTime;
 
+  @Column({
+    nullable: false,
+  })
+  matterId: number;
+
   @ManyToOne(() => CampaignMatter, {
     nullable: false,
   })
@@ -59,6 +64,11 @@ export default class Campaign {
   @OneToMany(() => CampaignBonus, (bonus) => bonus.campaign)
   @JoinTable()
   bonuses: CampaignBonus[];
+
+  @Column({
+    nullable: true,
+  })
+  userId: number;
 
   @ManyToOne(() => User, (user) => user.campaigns, {
     nullable: true,

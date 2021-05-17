@@ -1,13 +1,15 @@
+import bcrypt from 'bcrypt';
 import { DateTime } from 'luxon';
 import {
   Column,
   Entity,
+  JoinTable,
   ManyToMany,
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { UserRole } from '../modules/abilities';
 import { SqlDateTransformer } from '../modules/helpers';
+import { UserRole } from '../schema/IUser';
 import Campaign from './Campaign';
 import CampaignBonus from './CampaignBonus';
 import Comment from './Comment';
@@ -23,7 +25,9 @@ export default class User {
   @Column()
   name: string;
 
-  @Column()
+  @Column({
+    nullable: true,
+  })
   email: string;
 
   @Column({
@@ -44,10 +48,13 @@ export default class User {
   })
   userRole: UserRole;
 
-  @Column()
+  @Column({
+    nullable: true,
+  })
   passwordHash: string;
 
   @ManyToMany(() => CampaignBonus)
+  @JoinTable()
   achievedBonuses: CampaignBonus[];
 
   @OneToMany(() => Campaign, (campaign) => campaign.user)
