@@ -1,7 +1,7 @@
 import {
   createContext,
   useEffect,
-  useRef
+  useRef,
 } from 'react';
 import useSWR, { mutate } from 'swr';
 import EventEmitter from 'eventemitter3';
