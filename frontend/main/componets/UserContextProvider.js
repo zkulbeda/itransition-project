@@ -1,9 +1,11 @@
-import { createContext, useEffect, useRef } from 'react';
+import {
+  createContext,
+  useEffect,
+  useRef
+} from 'react';
 import useSWR, { mutate } from 'swr';
 import EventEmitter from 'eventemitter3';
 import api from '../api';
-import AutomaticLogOutError from '../errors/AutomaticLogOutError.mjs';
-import { getUserAbility } from '../abilities.mjs';
 import LoadingAppPage from './LoadingAppPage';
 
 export const UserContext = createContext({});
